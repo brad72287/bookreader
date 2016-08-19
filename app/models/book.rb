@@ -1,5 +1,7 @@
 class Book < ApplicationRecord
 
+	belongs_to :user
+
 	has_many :bookgenres
 	has_many :genres, through: :bookgenres
 
