@@ -11,10 +11,17 @@
 
   <h1>epub library</h1>
 
+  
+
+  <body>
+
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
-  <body>
+<%= current_user.to_s %>
+<%= link_to 'log out', destroy_user_session_path, method: :delete %>
+
+  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
 
     <%= yield %>
 	
