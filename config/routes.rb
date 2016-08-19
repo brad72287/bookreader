@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :bookgenres
   resources :genres
   resources :books
   root 'books#epub'
