@@ -59,7 +59,10 @@
 
          <script>
             "use strict";
-            var Book = ePub("https://s3.amazonaws.com/moby-dick/");
+            //amazon link that always works https://s3.amazonaws.com/moby-dick/
+            // /system/books/epubs/000/000/004/original/mobydickorwhale01melv.epub
+            var Book = ePub({ restore: true });
+            Book.open("https://s3.amazonaws.com/moby-dick/");
         </script>
     </head>
     <body>
