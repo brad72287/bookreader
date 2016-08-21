@@ -13,12 +13,10 @@
 ActiveRecord::Schema.define(version: 20160819195848) do
 
   create_table "bookgenres", force: :cascade do |t|
-    t.integer  "books_id"
-    t.integer  "genres_id"
+    t.integer  "book_id"
+    t.integer  "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["books_id"], name: "index_bookgenres_on_books_id"
-    t.index ["genres_id"], name: "index_bookgenres_on_genres_id"
   end
 
   create_table "books", force: :cascade do |t|

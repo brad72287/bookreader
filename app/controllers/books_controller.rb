@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all
+    @books = current_user.books
   end
 
   # GET /books/1
@@ -24,6 +24,7 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
+    #raise params.inspect
     @book = current_user.books.build(book_params)#Book.new(book_params)
 
     respond_to do |format|
@@ -76,6 +77,6 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:title, :author, :epub, :user_id)
+      params.require(:book).permit(:title, :author, :epub, :user_id, genres_attributes: [:name])
     end
 end
