@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookreader</title>
+    <title>epub library</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -20,9 +20,8 @@
 
 User signed in? <%= user_signed_in?.to_s %><br>
 <ul>
-<li><%= link_to 'browse ALL books', user_books_path %></li>
-<li><%= link_to 'my books', user_books_path %></li>
-<li><%= link_to 'upload a book', new_user_book_path %></li>
+<li><%= link_to 'browse all books', root_path %></li>
+<li><%= link_to 'my books', user_books_path(current_user) %></li>
 <li><%= link_to 'sign up', new_user_registration_path %></li>
 <li><%= link_to 'log in', new_user_session_path %></li>
 <li><%= link_to 'log out', destroy_user_session_path, method: :delete %></li>
