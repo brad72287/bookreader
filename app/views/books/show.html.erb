@@ -1,9 +1,10 @@
 
-<h1><strong><%= @book.title %> - <%= @book.author %></h1>
+<h2><%= @book.title %> - <%= @book.author %></h2>
+<h3></h3>
 <table class="table">
 
 	<tr>
-		<td>filename:</td>
+		<td>filename/download:</td>
 		<td><%= @book.epub_file_name %></td>
 	</tr>
 	<tr>
@@ -16,7 +17,7 @@
 	</tr>
 	<tr>
 		<td>genres:</td>
-		<td><%= @book.epub_updated_at %></td>
+		<td><%= genre_links(@book) %></td>
 	</tr>
 </table>
 
