@@ -4,7 +4,7 @@ class Book < ApplicationRecord
 
 	has_many :bookgenres
 	has_many :genres, through: :bookgenres
-	accepts_nested_attributes_for :genres
+	accepts_nested_attributes_for :genres, reject_if: proc { |attributes| attributes['name'].blank? }
 
 	validates :title, presence: true
 	validates :author, presence: true

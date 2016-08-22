@@ -1,0 +1,27 @@
+welcome to the epub library. patrons of the epub library have uploaded <%= Book.count %> books.
+
+<table>
+  <thead>
+    <tr>
+      <th>filename</th>
+      <th>title</th>
+      <th>author</th>
+      <th>genres</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% Book.all.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.author %></td>
+        <td><%= link_to book.epub_file_name, book.epub.url %></td>
+        <td><%= book.genres.map {|x| x.name}.join(", ") %></td>
+        <td><%= link_to 'details', user_book_path(current_user, book) %></td>
+        <td><%= link_to 'edit', edit_user_book_path(current_user, book) %></td>
+        <td><%= link_to 'delete', user_book_path(current_user, book), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
