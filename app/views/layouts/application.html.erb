@@ -25,30 +25,26 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">epub library</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><%= link_to 'browse the collection', root_path %></li>
+            <li><%= link_to 'my books', user_books_path(current_user) if user_signed_in? %></li>
+            <li><%= link_to 'sign up', new_user_registration_path unless user_signed_in? %></li>
+            <li><%= link_to 'log in', new_user_session_path unless user_signed_in? %></li>
+            <li><%= link_to 'log out', destroy_user_session_path, method: :delete if user_signed_in?%></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-
-
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
 User signed in? <%= user_signed_in?.to_s %><br>
 <ul>
-<li><%= link_to 'browse the collection', root_path %></li>
-<li><%= link_to 'my books', user_books_path(current_user) if user_signed_in? %></li>
-<li><%= link_to 'sign up', new_user_registration_path unless user_signed_in? %></li>
-<li><%= link_to 'log in', new_user_session_path unless user_signed_in? %></li>
-<li><%= link_to 'log out', destroy_user_session_path, method: :delete if user_signed_in?%></li>
+
 </ul>
 
 
