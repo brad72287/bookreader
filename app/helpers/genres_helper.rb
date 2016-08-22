@@ -1,5 +1,5 @@
 module GenresHelper
   def genre_links(book)
-  	book.genres.map {|x| link_to x.name, root_path}.join(", ").html_safe
+  	book.genres.map {|genre| link_to genre.name, genre_path(genre)}.join(", ").html_safe
   end
 end
