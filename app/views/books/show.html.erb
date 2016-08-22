@@ -1,14 +1,23 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
-</p>
+<h1><strong><%= @book.title %> - <%= @book.author %></h1>
+<table class="table">
 
-<p>
-  <strong>Author:</strong>
-  <%= @book.author %>
-</p>
+	<tr>
+		<td>filename:</td>
+		<td><%= @book.epub_file_name %></td>
+	</tr>
+	<tr>
+		<td>filesize:</td>
+		<td><%= @book.epub_file_size/1000 %> kb</td>
+	</tr>
+	<tr>
+		<td>updated:</td>
+		<td><%= @book.epub_updated_at %></td>
+	</tr>
+	<tr>
+		<td>genres:</td>
+		<td><%= @book.epub_updated_at %></td>
+	</tr>
+</table>
 
-<%= link_to 'Edit', edit_user_book_path(current_user, @book) %> |
-<%= link_to 'Back', user_books_path(current_user) %>
+<%= link_to 'Back', :back %>
