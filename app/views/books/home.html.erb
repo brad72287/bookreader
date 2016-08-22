@@ -23,7 +23,7 @@
         <td><%= book.title %></td>
         <td><%= book.author %></td>
         <td><%= link_to book.epub_file_name, book.epub.url %></td>
-        <td><%= book.genres.map {|x| x.name}.join(", ") %></td>
+        <td><%= genre_links(book) %></td>
         <td><%= link_to 'details', user_book_path(book.user, book) %></td>
         <td><%= link_to 'edit', edit_user_book_path(book.user, book) %></td>
         <td><%= link_to 'delete', user_book_path(book.user, book), method: :delete, data: { confirm: 'Are you sure?' } %></td>
