@@ -14,7 +14,7 @@
   <tbody>
     <% @genres.each do |genre| %>
       <tr>
-        <td><%= link_to genre.name, genre %> (<%= genre.books.count %> books)</td>
+        <td><%= link_to genre.name, genre %> <span class="badge"><%= genre.books.count %></span></a></td>
         <td></td>
         <td><%= link_to 'Edit', edit_genre_path(genre) %></td>
         <td><%= link_to 'Destroy', genre, method: :delete, data: { confirm: 'Are you sure?' } %></td>
