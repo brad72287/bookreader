@@ -24,7 +24,7 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
-    raise params.inspect
+    #raise params.inspect
     @book = current_user.books.build(book_params)#Book.new(book_params)
 
     respond_to do |format|
