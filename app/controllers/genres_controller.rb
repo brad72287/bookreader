@@ -6,7 +6,7 @@ class GenresController < ApplicationController
   end
 
   def show
-    @books = Book.joins(:genres).where(genres: {name: @genre.name})
+    @books = Book.by_genre(@genre.name)
   end
 
   def most_popular

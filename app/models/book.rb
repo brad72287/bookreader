@@ -26,4 +26,8 @@ class Book < ApplicationRecord
 	def download_link
 		epub.url.split('?').first #using paperclip defaults results in downloading a .zip file
 	end 
+
+	def self.by_genre(genre)
+		joins(:genres).where(genres: {name: genre})
+	end
 end
