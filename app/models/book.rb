@@ -22,4 +22,8 @@ class Book < ApplicationRecord
 	    end
 	  end
 	end
+
+	def download_link
+		epub.url.split('?').first #using paperclip defaults results in downloading a .zip file
+	end 
 end
