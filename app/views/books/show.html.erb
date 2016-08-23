@@ -5,7 +5,7 @@
 
 	<tr>
 		<td>filename/download:</td>
-		<td><%= @book.epub_file_name %></td>
+		<td><%= link_to @book.epub_file_name, @book.download_link %></td>
 	</tr>
 	<tr>
 		<td>filesize:</td>
