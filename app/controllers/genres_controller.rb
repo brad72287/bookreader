@@ -2,7 +2,7 @@ class GenresController < ApplicationController
   before_action :set_genre, only: [:show, :edit, :update, :destroy]
 
   def index
-    @genres = Genre.all.sort_by {|x| x.name}
+    @genres = Genre.alphabetized
   end
 
   def show
@@ -10,7 +10,7 @@ class GenresController < ApplicationController
   end
 
   def most_popular
-    @genres = Genre.all.sort_by {|x| x.books.count}.reverse
+    @genres = Genre.most_popular
     render :index
   end
 
