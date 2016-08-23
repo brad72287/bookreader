@@ -4,7 +4,7 @@ class Book < ApplicationRecord
 
 	has_many :bookgenres
 	has_many :genres, through: :bookgenres
-	accepts_nested_attributes_for :genres, reject_if: proc { |attributes| attributes['name'].blank? }
+	accepts_nested_attributes_for :genres
 
 	validates :title, presence: true
 	validates :author, presence: true
@@ -16,8 +16,10 @@ class Book < ApplicationRecord
 
 	def genres_attributes=(genre_attributes)
 	  genre_attributes.values.each do |genre_attribute|
-	    genre = Genre.find_or_create_by(genre_attribute)
-	    self.genres << genre
+	  	unless genre_attribute['name'].empty?
+	    	genre = Genre.find_or_create_by(genre_attribute)
+	    	self.genres << genre
+	    end
 	  end
 	end
 end
