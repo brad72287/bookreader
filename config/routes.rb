@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   	resources :books
   end
   resources :bookgenres
+  get 'genres/most_popular' => 'genres#most_popular'
   resources :genres
   #resources :books
   root 'books#home'

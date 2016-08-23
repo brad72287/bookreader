@@ -2,11 +2,16 @@ class GenresController < ApplicationController
   before_action :set_genre, only: [:show, :edit, :update, :destroy]
 
   def index
-    @genres = Genre.all
+    @genres = Genre.all.sort_by {|x| x.name}
   end
 
   def show
     @books = Book.joins(:genres).where(genres: {name: @genre.name})
+  end
+
+  def most_popular
+    @genres = Genre.all.sort_by {|x| x.books.count}.reverse
+    render :index
   end
 
   def new
@@ -32,11 +37,9 @@ class GenresController < ApplicationController
     respond_to do |format|
       if @genre.update(genre_params)
         format.html { redirect_to @genre, notice: 'Genre was successfully updated.' }
-        format.json { render :show, status: :ok, location: @genre }
-      else
+       else
         format.html { render :edit }
-        format.json { render json: @genre.errors, status: :unprocessable_entity }
-      end
+       end
     end
   end
 
@@ -44,7 +47,6 @@ class GenresController < ApplicationController
     @genre.destroy
     respond_to do |format|
       format.html { redirect_to genres_url, notice: 'Genre was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
