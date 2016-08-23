@@ -5,9 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-@user = User.create! :email => 'john2@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
-@book = Book.new(title: "seed", author: "seed")
-@book.epub = File.new("test/fixtures/files/book.epub")
-@book.user = @user
-@book.save
+20.times do 
+	user = User.create! :email => Faker::Internet.email, :password => 'topsecret', :password_confirmation => 'topsecret'
+	5.times do
+		book = Book.new(title: Faker::Book.title, author: Faker::Book.author)
+		book.epub = File.new("test/fixtures/files/book.epub")
+		book.genres << Genre.find_or_create_by(name: Faker::Book.genre)
+		book.genres << Genre.find_or_create_by(name: Faker::Book.genre)
+		book.user = user
+		book.save
+	end 
+end
