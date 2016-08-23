@@ -10,6 +10,7 @@ class GenresController < ApplicationController
   # GET /genres/1
   # GET /genres/1.json
   def show
+    @books = Book.joins(:genres).where(genres: {name: @genre.name})
   end
 
   # GET /genres/new
