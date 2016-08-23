@@ -1,0 +1,17 @@
+Simple RSS Reader
+04 Jun 2016
+I consume a lot of news. So, for my final Sinatra project, I thought I’d attempt to make a simple RSS reader. RSS, or “really simple syndication”, is a standardized syndication format that allows one to pull data from websites and easily extract information. Most news websites and blogs offer RSS feeds of their content, oftentimes in summary form (some sites allow you to pull whole articles through RSS feeds, although this is somewhat rare because of the prevalence of content-spun blogspam).
+
+I did not hit too many snags along the way, thankfully. Most of the time on this project was spent figuring out Ruby’s RSS class, which is great and usefully included built-in validation so that I did not have to write my own RSS validator. I also took great pleasure in incorporating Bootstrap, which felt like a magic spell that instantly transformed my bare HTML into a modern-looking website.
+
+Simple RSS Reader is available on github here: https://github.com/brad72287/simple_rss_reader
+
+CLImgur, the command line imgur browser
+15 May 2016
+One of the learn.co webcasts referenced the fact that you can watch Star Wars via telnet. This made me wonder what it would look like if a modern website were “ported” to the command line. I chose to make a command line version of Imgur (an image-sharing website where I spend far too much time) for my CLI data gem project. To render the images, I found a gem called asciiart, which transforms images into ascii representations (with support for color!).
+
+Imgur does have an api, but I instead opted to simply scrape the mainpage using nokogiri and extract the information that I wanted (post titles and image urls). After that, the imgur urls are simply fed into ascii art, which tranforms them into ascii. The functionality of my gem is somewhat limited at the moment– the gem will simply display preview images and post titles taken from the imgur frontpage. If the user wishes to see an image in more detail, they can then specify an image and a full resolution of the image will be displayed in a higher ascii resolution.
+
+This was a challenging/fun project and I learned a lot. At times it was frustrating, but the ‘google the error message’ rule served me well. There were some issues with dependencies, and unfortunately, I didn’t realize until I was nearly done with the project that it required a library called ImageMagick to function properly (the reason this took so long to discover was that Nitrous (where I did all of my work) came pre-installed with ImageMagick). If I were starting over, I also might not use bundler to make my gem, as it included a lot of extraneous stuff that ended up being confusing. I should have just started with the barebones outline here.
+
+CLImgur on Github: https://github.com/brad72287/climgur-cli-gem
