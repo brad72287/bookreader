@@ -6,23 +6,17 @@ class CommentsController < ApplicationController
   end
 
   def create
-    #raise params.inspect
     @comment = Comment.new(comment_params)
-
-    respond_to do |format|
       if @comment.save
-        format.html { redirect_to :back, notice: 'Comment was successfully created.' }
+        redirect_to :back, notice: 'Comment was successfully created.'
       else
-        format.html { redirect_to :back, alert: 'Your comment failed for some reason.' }
+        redirect_to :back, alert: 'Your comment failed for some reason.'
       end
-    end
   end
 
   def destroy
     @comment.destroy
-    respond_to do |format|
-      format.html { redirect_to :back, notice: 'Comment was successfully destroyed.' }
-     end
+    redirect_to :back, notice: 'Comment was successfully destroyed.'
   end
 
   private
