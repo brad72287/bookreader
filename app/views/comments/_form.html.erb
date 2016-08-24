@@ -14,6 +14,8 @@
   <div class="field">
     <%= f.label :content %>
     <%= f.text_field :content %>
+    <%= f.hidden_field :book_id, value: comment.book_id %>
+    <%= f.hidden_field :user_id, value: comment.user_id %>
   </div>
 
   <div class="actions">

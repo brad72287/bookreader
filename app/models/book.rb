@@ -6,6 +6,8 @@ class Book < ApplicationRecord
 	has_many :genres, through: :bookgenres
 	accepts_nested_attributes_for :genres
 
+	has_many :comments
+
 	validates :title, presence: true
 	validates :author, presence: true
 

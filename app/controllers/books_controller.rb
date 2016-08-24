@@ -7,6 +7,8 @@ class BooksController < ApplicationController
   end
 
   def show
+    @comment = current_user.comments.build
+    @comment.book_id = @book.id
   end
 
   def new

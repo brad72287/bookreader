@@ -21,4 +21,7 @@
 	</tr>
 </table>
 
+<%= @comment.inspect %>
+<%= render 'comments/form', comment: @comment, book: @book %>
+
 <%= link_to 'Back', :back %>

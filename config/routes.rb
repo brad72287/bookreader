@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
-
   resources :comments
+  
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :users do 
-  	resources :books
+  	resources :books do
+
+    end
   end
   resources :bookgenres
   get 'genres/most_popular' => 'genres#most_popular'
