@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160819195848) do
+ActiveRecord::Schema.define(version: 20160824164532) do
 
   create_table "bookgenres", force: :cascade do |t|
     t.integer  "book_id"
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(version: 20160819195848) do
     t.integer  "epub_file_size"
     t.datetime "epub_updated_at"
     t.index ["user_id"], name: "index_books_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "genres", force: :cascade do |t|
