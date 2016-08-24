@@ -1,3 +1,4 @@
+<h3>add a comment</h3>
 <%= form_for(comment) do |f| %>
   <% if comment.errors.any? %>
     <div id="error_explanation">
@@ -12,8 +13,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :content %>
-    <%= f.text_field :content %>
+    <br><%= f.text_field :content %>
     <%= f.hidden_field :book_id, value: comment.book_id %>
     <%= f.hidden_field :user_id, value: comment.user_id %>
   </div>

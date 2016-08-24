@@ -1,6 +1,6 @@
 
 <h2><%= @book.title %> - <%= @book.author %></h2>
-<h3></h3>
+
 <table class="table">
 
 	<tr>
@@ -21,7 +21,22 @@
 	</tr>
 </table>
 
-<%= @comment.inspect %>
+
+<h3>comments</h3>
+<table class="table">
+<% @book.comments.each do |comment| %>
+	<tr>
+		<td><strong><%= comment.user.email %></strong> says: <%= comment.content %></td>
+	</tr>
+<% end %>
+<% if @book.comments.empty? %>
+	<tr>
+		<td>there are no comments yet. why don't you add one?</td>
+	</tr>
+<% end %>
+</table>
+
+
 <%= render 'comments/form', comment: @comment, book: @book %>
 
 <%= link_to 'Back', :back %>
