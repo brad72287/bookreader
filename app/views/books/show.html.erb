@@ -27,6 +27,7 @@
 <% @book.comments.each do |comment| %>
 	<tr>
 		<td><strong><%= comment.user.email %></strong> says: <%= comment.content %></td>
+		<td><%= link_to 'delete', comment, method: :delete, data: { confirm: 'Are you sure?' } if comment.user == current_user %></td>
 	</tr>
 <% end %>
 <% if @book.comments.empty? %>
@@ -37,6 +38,6 @@
 </table>
 
 
-<%= render 'comments/form', comment: @comment, book: @book %>
+<%= render 'comments/form', comment: @comment, book: @book if @comment %>
 
 <%= link_to 'Back', :back %>
