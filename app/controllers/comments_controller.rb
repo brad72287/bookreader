@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
       if @comment.save
         redirect_to :back, notice: 'Comment was successfully created.'
       else
-        redirect_to :back, alert: 'Your comment failed for some reason.'
+        redirect_to :back, alert: "Sorry, your comment couldn't be added. Make sure it is at least 10 characters."
       end
   end
 
