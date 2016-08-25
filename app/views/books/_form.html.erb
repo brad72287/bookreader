@@ -29,7 +29,7 @@
   </div>
   
   <div class="field">
-  <%= f.label :genres %> (please choose/create at least 1 genre)
+  <%= f.label :genres %>
     <br><%= f.collection_check_boxes :genre_ids, Genre.all, :id, :name %>
     <%= f.fields_for :genres, book.genres.build do |genres_fields| %>
     <br> create a new genre: <%= genres_fields.text_field :name %>
