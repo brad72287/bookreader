@@ -44,6 +44,9 @@ class BooksController < ApplicationController
   def home
   end
 
+  def book_comments
+  end
+
   private
     def set_book
       @book = Book.find(params[:id])

@@ -3,8 +3,12 @@ Rails.application.routes.draw do
   resources :comments
   resources :users do 
   	resources :books do
+    #users/:id/book_comments
+    #book_comments
+    #book_comments.html.erb
     end
   end
+  get 'users/:id/book_comments' => 'books#book_comments'
   #resources :bookgenres
   get 'genres/most_popular' => 'genres#most_popular'
   resources :genres
