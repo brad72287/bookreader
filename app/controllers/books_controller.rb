@@ -42,6 +42,7 @@ class BooksController < ApplicationController
   end
 
   def home
+
   end
 
   def book_comments
