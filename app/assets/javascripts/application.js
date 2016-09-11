@@ -15,3 +15,12 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+
+
+$( document ).ready(function() {
+  $('.hello').click(function(e){
+  	e.preventDefault();
+  	console.log(this);
+  });
+  //$("tr").after("<tr><td>hello world</td></tr>");
+});

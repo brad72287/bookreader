@@ -3,4 +3,7 @@
   <p>welcome to the epub library. patrons of the epub library have uploaded <%= Book.count %> books.</p> 
 </div>
 
+
+
+
 <%= render partial: "books/table", locals: {books: Book.all} %>f

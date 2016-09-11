@@ -41,10 +41,6 @@ class BooksController < ApplicationController
     redirect_to user_books_url(current_user), notice: 'Book was successfully destroyed.'
   end
 
-  def home
-
-  end
-
   def book_comments
   end
 
