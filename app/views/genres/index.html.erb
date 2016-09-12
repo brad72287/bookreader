@@ -3,13 +3,8 @@
   <p>here, you can browse the library's collection by genre. there are currently <%= Genre.count %> genres to choose from. <%= link_to 'click here see the most popular genres.', '/genres/most_popular' %> </p> 
 </div>
 
-<div class="genreContainer"></div>
+<div style='display: none;' class="genreContainer"></div>
     
-    <% @genres.each do |genre| %>
-      <h3><%= link_to genre.name, genre %> <span class="badge"><%= genre.books.count %></span></a></td></h3>
-    <% end %>
-    
-
 <script>
 $( document ).ready(function() {
 	console.log('the script is running');
@@ -22,10 +17,11 @@ $( document ).ready(function() {
 	    		$('.genreContainer').append(
 	    			"<h4><a href='/genres/"+genre.id+"'>"+genre.name+" <span class='badge'>"+genre.books.length+"</span></a></td></h4>"
 	    		);
-	    		$.each(genre.books, function(key, book){
-	    			$('.genreContainer').append(book.title+" - "+book.author+"<br>");
-	    		});
+	    		// $.each(genre.books, function(key, book){
+	    		// 	$('.genreContainer').append(book.title+" - "+book.author+"<br>");
+	    		// });
 	    	});
+	    	$('.genreContainer').fadeIn();
 	    });
 });
 </script>

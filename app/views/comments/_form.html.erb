@@ -26,15 +26,11 @@
 <script type="text/javascript" charset="utf-8">
   $(function () {
     $('form').submit(function(event) {
-      //prevent form from submitting the default way
       event.preventDefault();
- 
       var values = $(this).serialize();
- 
       var commenting = $.post('/comments', values);
- 
       commenting.done(function(data) {
-        console.log(data);
+        //Why does form only work once?
         $('#commentsTable tr:last').after(
             "<tr><td><strong>"+data.user.email+"</strong> says: "+data.content+"</td><td><a data-confirm='Are you sure?'' rel='nofollow' data-method='delete' href='/comments/"+data.id+"'>delete</a></td></tr>"
         );
