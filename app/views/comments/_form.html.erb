@@ -35,7 +35,10 @@
  
       commenting.done(function(data) {
         console.log(data);
-        $(".temp").append(data.content)
+        $('#commentsTable tr:last').after(
+            "<tr><td><strong>"+data.user.email+"</strong> says: "+data.content+"</td><td><a data-confirm='Are you sure?'' rel='nofollow' data-method='delete' href='/comments/"+data.id+"'>delete</a></td></tr>"
+        );
+        
       });
     });
   });
