@@ -9,4 +9,18 @@
     <% end %>
     
 
+
 <br>
+
+<script>
+$( document ).ready(function() {
+	console.log('the script is running');
+  	$.ajax({
+    	url: "/genres.json"
+		})
+	  	.done(function(response) {
+	    	//$( "body" ).html( html );
+	    	console.log(response);
+	    	});
+});
+</script>
