@@ -11,6 +11,10 @@ class GenresController < ApplicationController
 
   def show
     @books = Book.by_genre(@genre.name)
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @genre}
+    end
   end
 
   def most_popular

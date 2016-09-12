@@ -3,7 +3,20 @@
   <p>displaying <%= @books.count %> books.</p> 
 </div>
 
+
+
 <%= render partial: "books/table", locals: {books: @books} %>
 
 <%= link_to 'Edit', edit_genre_path(@genre) %> |
 <%= link_to 'Back', genres_path %>
+
+<script>
+$.ajax({
+    url: window.location.pathname+".json"
+	})
+	.done(function(response) {
+	//$( "body" ).html( html );
+	console.log(response);
+	//$('.toggleInfo').toggle();
+});
+</script>
