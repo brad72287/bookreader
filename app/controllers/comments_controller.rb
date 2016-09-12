@@ -6,12 +6,13 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
-      if @comment.save
-        redirect_to :back, notice: 'Comment was successfully created.'
-      else
-        redirect_to :back, alert: "Sorry, your comment couldn't be added. Make sure it is at least 10 characters."
-      end
+    @comment = Comment.create(comment_params)
+    render json: @comment, status: 201
+      # if @comment.save
+      #   redirect_to :back, notice: 'Comment was successfully created.'
+      # else
+      #   redirect_to :back, alert: "Sorry, your comment couldn't be added. Make sure it is at least 10 characters."
+      # end
   end
 
   def destroy

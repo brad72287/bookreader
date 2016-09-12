@@ -22,3 +22,21 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+    $('form').submit(function(event) {
+      //prevent form from submitting the default way
+      event.preventDefault();
+ 
+      var values = $(this).serialize();
+ 
+      var commenting = $.post('/comments', values);
+ 
+      commenting.done(function(data) {
+        console.log(data);
+        $(".temp").append(data.content)
+      });
+    });
+  });
+</script>
