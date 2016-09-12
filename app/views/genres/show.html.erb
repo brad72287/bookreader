@@ -5,6 +5,7 @@
 
 <div id="genreContainer" class="well">
   <h2 id="genreName"></h2>
+  <p id="genreBooks"></p>
 </div>
 
 
@@ -19,9 +20,12 @@ $.ajax({
     url: window.location.pathname+".json"
 	})
 	.done(function(response) {
-	//$( "body" ).html( html );
 	console.log(response);
 	$("#genreName").html(response.name);
-	//$('.toggleInfo').toggle();
+	$.each(response.books, function(key, book){
+		$("#genreBooks").append("<a href='/users/"+book.user_id+"/books/"+book.id+"'>"+
+			book.title+" - "+book.title+"</a><br>"
+			);
+	});
 });
 </script>
