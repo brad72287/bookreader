@@ -3,6 +3,10 @@
   <p>displaying <%= @books.count %> books.</p> 
 </div>
 
+<div id="genreContainer" class="well">
+  <h2 id="genreName"></h2>
+</div>
+
 
 
 <%= render partial: "books/table", locals: {books: @books} %>
@@ -17,6 +21,7 @@ $.ajax({
 	.done(function(response) {
 	//$( "body" ).html( html );
 	console.log(response);
+	$("#genreName").html(response.name);
 	//$('.toggleInfo').toggle();
 });
 </script>
