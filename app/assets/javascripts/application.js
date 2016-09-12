@@ -18,15 +18,16 @@
 
 
 $( document ).ready(function() {
-  $('.hello').click(function(e){
+  $('.moreInfo').click(function(e){
   	e.preventDefault();
-  	console.log(this);
+  	console.log(this+'.json');
   	$.ajax({
-    	url: this,
-	  		cache: false
+    	url: this+".json"
 		})
-	  	.done(function( html ) {
-	    	$( "body" ).html( html );
+	  	.done(function(response) {
+	    	//$( "body" ).html( html );
+	    	console.log(response);
+	    	$('.toggleInfo').toggle();
 	  });
   });
   //$("tr").after("<tr><td>hello world</td></tr>");

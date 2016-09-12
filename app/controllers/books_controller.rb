@@ -10,6 +10,10 @@ class BooksController < ApplicationController
       @comment = current_user.comments.build
       @comment.book_id = @book.id
     end
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @book}
+    end
     #render json: @book
   end
 
