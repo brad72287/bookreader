@@ -3,14 +3,12 @@
   <p>here, you can browse the library's collection by genre. there are currently <%= Genre.count %> genres to choose from. <%= link_to 'click here see the most popular genres.', '/genres/most_popular' %> </p> 
 </div>
 
+<div class="genreContainer"></div>
     
     <% @genres.each do |genre| %>
       <h3><%= link_to genre.name, genre %> <span class="badge"><%= genre.books.count %></span></a></td></h3>
     <% end %>
     
-
-
-<br>
 
 <script>
 $( document ).ready(function() {
@@ -18,9 +16,13 @@ $( document ).ready(function() {
   	$.ajax({
     	url: "/genres.json"
 		})
-	  	.done(function(response) {
-	    	//$( "body" ).html( html );
-	    	console.log(response);
+	  	.done(function(genres) {
+	    	$.each(genres, function(key, genre){
+	    		console.log(genre.books.length);
+	    		$('.genreContainer').append(
+	    			"<h4><a href='/genres/"+genre.id+"'>"+genre.name+" <span class='badge'>"+genre.books.length+"</span></a></td></h3>"
+	    		);
 	    	});
+	    });
 });
 </script>
