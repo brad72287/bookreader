@@ -20,8 +20,11 @@ $( document ).ready(function() {
 	    	$.each(genres, function(key, genre){
 	    		console.log(genre.books.length);
 	    		$('.genreContainer').append(
-	    			"<h4><a href='/genres/"+genre.id+"'>"+genre.name+" <span class='badge'>"+genre.books.length+"</span></a></td></h3>"
+	    			"<h4><a href='/genres/"+genre.id+"'>"+genre.name+" <span class='badge'>"+genre.books.length+"</span></a></td></h4>"
 	    		);
+	    		$.each(genre.books, function(key, book){
+	    			$('.genreContainer').append(book.title+" - "+book.author+"<br>");
+	    		});
 	    	});
 	    });
 });
