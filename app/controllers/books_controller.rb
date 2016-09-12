@@ -10,6 +10,7 @@ class BooksController < ApplicationController
       @comment = current_user.comments.build
       @comment.book_id = @book.id
     end
+    #render json: @book
   end
 
   def new

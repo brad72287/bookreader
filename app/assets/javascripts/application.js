@@ -21,6 +21,13 @@ $( document ).ready(function() {
   $('.hello').click(function(e){
   	e.preventDefault();
   	console.log(this);
+  	$.ajax({
+    	url: this,
+	  		cache: false
+		})
+	  	.done(function( html ) {
+	    	$( "body" ).html( html );
+	  });
   });
   //$("tr").after("<tr><td>hello world</td></tr>");
 });
