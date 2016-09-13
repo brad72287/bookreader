@@ -6,20 +6,12 @@
 <div style='display: none;' class="genreContainer"></div>
     
 <script>
-$( document ).ready(function() {
-	console.log('the script is running');
-  	$.ajax({
-    	url: "/genres.json"
-		})
+$(document).ready(function() {
+  	$.ajax({url: "/genres.json"})
 	  	.done(function(genres) {
-	    	$.each(genres, function(key, genre){
-	    		console.log(genre.books.length);
-	    		$('.genreContainer').append(
-	    			"<h4><a href='/genres/"+genre.id+"'>"+genre.name+" <span class='badge'>"+genre.books.length+"</span></a></td></h4>"
-	    		);
-	    		// $.each(genre.books, function(key, book){
-	    		// 	$('.genreContainer').append(book.title+" - "+book.author+"<br>");
-	    		// });
+	    	$.each(genres, function(key, value){
+	    		var genre = new Genre(value); 
+	    		$('.genreContainer').append(genre.formatGenre());
 	    	});
 	    	$('.genreContainer').fadeIn();
 	    });

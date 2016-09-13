@@ -39,15 +39,16 @@ class Genre {
   constructor(genreJSON) {
     this.name = genreJSON.name;
     this.id = genreJSON.id;
+    this.books = genreJSON.books;
   }
  
   formatGenre() {
-    console.log(this.name);
+    return "<h4><a href='/genres/"+this.id+"'>"+this.name+" <span class='badge'>"+this.books.length+"</span></a></td></h4>";
   }
 }
  
-var genre = new Genre({id: 18, name: "Short story"});
-sarah.formatGenre();
+// var genre = new Genre({id: 18, name: "Short story"});
+// genre.formatGenre();
 
 
 
