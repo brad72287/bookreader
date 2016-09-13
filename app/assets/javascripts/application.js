@@ -18,17 +18,36 @@
 
 
 $( document ).ready(function() {
-  $('.moreInfo').click(function(e){
-  	e.preventDefault();
-  	console.log(this+'.json');
-  	$.ajax({
-    	url: this+".json"
-		})
-	  	.done(function(response) {
-	    	//$( "body" ).html( html );
-	    	console.log(response);
-	    	$('.toggleInfo').toggle();
-	  });
-  });
-  //$("tr").after("<tr><td>hello world</td></tr>");
+  // $('.moreInfo').click(function(e){
+  // 	e.preventDefault();
+  // 	console.log(this+'.json');
+  // 	$.ajax({
+  //   	url: this+".json"
+		// })
+	 //  	.done(function(response) {
+	 //    	//$( "body" ).html( html );
+	 //    	console.log(response);
+	 //    	$('.toggleInfo').toggle();
+	 //  });
+  // });
+  //$("tr").after("<tr><td>hello world</td></tr>")
+ 
+
 });
+
+class Genre {
+  constructor(genreJSON) {
+    this.name = genreJSON.name;
+    this.id = genreJSON.id;
+  }
+ 
+  formatGenre() {
+    console.log(this.name);
+  }
+}
+ 
+var genre = new Genre({id: 18, name: "Short story"});
+sarah.formatGenre();
+
+
+
