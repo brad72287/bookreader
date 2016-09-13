@@ -30,7 +30,7 @@ $(function() {
 		$("#genreName").html(response.name);
 		$.each(response.books, function(key, book){
 			$("#genreBooks").append("<a href='/users/"+book.user_id+"/books/"+book.id+"'>"+
-				book.title+" - "+book.title+"</a><br>"
+				book.title+" - "+book.author+"</a><br>"
 				);
 		});
 	});
@@ -44,7 +44,7 @@ $(".nextGenre").on("click", function(e) {
     	$("#genreName").html(data.name);
     	$("#genreBooks").html("");
 		$.each(data.books, function(key, book){
-			$("#genreBooks").append("<a href='/users/"+book.user_id+"/books/"+book.id+"'>"+book.title+" - "+book.title+"</a><br>");
+			$("#genreBooks").append("<a href='/users/"+book.user_id+"/books/"+book.id+"'>"+book.title+" - "+book.author+"</a><br>");
 		});
     });
  });
