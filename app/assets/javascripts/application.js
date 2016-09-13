@@ -17,10 +17,6 @@
 //= require bootstrap-sprockets
 
 
-$( document ).ready(function() {
-
-});
-
 class Genre {
   constructor(genreJSON) {
     this.name = genreJSON.name;
@@ -35,14 +31,15 @@ class Genre {
 
 class Comment {
   constructor(commentJSON) {
-    this.content = contentJSON.content;
-    this.id = contentJSON.id;
-    this.user_id = contentJSON.user_id;
-    this.book_id = contentJSON.book_id;
+    this.content = commentJSON.content;
+    this.id = commentJSON.id;
+    this.user_id = commentJSON.user_id;
+    this.book_id = commentJSON.book_id;
+    this.user = commentJSON.user;
   }
  
   formatComment() {
-    return "<h4><a href='/genres/"+this.id+"'>"+this.name+" <span class='badge'>"+this.books.length+"</span></a></td></h4>";
+    return "<tr><td><strong>"+this.user.email+"</strong> says: "+this.content+"</td><td><a data-confirm='Are you sure?'' rel='nofollow' data-method='delete' href='/comments/"+self.id+"'>delete</a></td></tr>";
   }
 }
 

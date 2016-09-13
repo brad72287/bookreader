@@ -31,12 +31,8 @@
       var commenting = $.post('/comments', values);
       commenting.done(function(data) {
         //Why does form only work once?
-        //var comment = new Comment(data);
-        console.log(data);
-        $('#commentsTable tr:last').after(
-            "<tr><td><strong>"+data.user.email+"</strong> says: "+data.content+"</td><td><a data-confirm='Are you sure?'' rel='nofollow' data-method='delete' href='/comments/"+data.id+"'>delete</a></td></tr>"
-        );
-        
+        var comment = new Comment(data);
+        $('#commentsTable tr:last').after(comment.formatComment());
       });
     });
   });
