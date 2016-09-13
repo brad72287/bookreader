@@ -9,8 +9,8 @@
 $(document).ready(function() {
   	$.ajax({url: "/genres.json"})
 	  	.done(function(genres) {
-	    	$.each(genres, function(key, value){
-	    		var genre = new Genre(value); 
+	    	$.each(genres, function(key, genreHash){
+	    		var genre = new Genre(genreHash); 
 	    		$('.genreContainer').append(genre.formatGenre());
 	    	});
 	    	$('.genreContainer').fadeIn();

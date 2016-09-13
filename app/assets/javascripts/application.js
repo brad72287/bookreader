@@ -18,20 +18,6 @@
 
 
 $( document ).ready(function() {
-  // $('.moreInfo').click(function(e){
-  // 	e.preventDefault();
-  // 	console.log(this+'.json');
-  // 	$.ajax({
-  //   	url: this+".json"
-		// })
-	 //  	.done(function(response) {
-	 //    	//$( "body" ).html( html );
-	 //    	console.log(response);
-	 //    	$('.toggleInfo').toggle();
-	 //  });
-  // });
-  //$("tr").after("<tr><td>hello world</td></tr>")
- 
 
 });
 
@@ -46,9 +32,20 @@ class Genre {
     return "<h4><a href='/genres/"+this.id+"'>"+this.name+" <span class='badge'>"+this.books.length+"</span></a></td></h4>";
   }
 }
+
+class Comment {
+  constructor(commentJSON) {
+    this.content = contentJSON.content;
+    this.id = contentJSON.id;
+    this.user_id = contentJSON.user_id;
+    this.book_id = contentJSON.book_id;
+  }
  
-// var genre = new Genre({id: 18, name: "Short story"});
-// genre.formatGenre();
+  formatComment() {
+    return "<h4><a href='/genres/"+this.id+"'>"+this.name+" <span class='badge'>"+this.books.length+"</span></a></td></h4>";
+  }
+}
+
 
 
 
