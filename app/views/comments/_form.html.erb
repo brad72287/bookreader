@@ -27,6 +27,14 @@
 
 <script type="text/javascript" charset="utf-8">
   $(function () {
+
+    $(window).keydown(function(event){
+      if(event.keyCode == 13) {
+        event.preventDefault();
+        return false;
+      }
+    });
+
     $('#clickSubmit').on('click', function(event) {
       event.preventDefault();
       var values = $('form').serialize();

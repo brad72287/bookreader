@@ -1,3 +1,11 @@
+// function User (name, email){
+//   this.name = name;
+//   this.email = email;
+// }
+// User.prototype.sayHello = function(){
+//   console.log("Hello, my name is "+ this.name);
+// }
+
 class Genre {
   constructor(genreJSON) {
     this.name = genreJSON.name;
