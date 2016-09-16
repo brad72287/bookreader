@@ -24,6 +24,10 @@
 
 <h3>comments</h3>
 <table id="commentsTable" class='table'>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
 	<% @book.comments.each do |comment| %>
 		<tr>
 			<td><strong><%= comment.user.email %></strong> says: <%= comment.content %></td>

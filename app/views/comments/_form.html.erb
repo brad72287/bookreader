@@ -22,12 +22,12 @@
     <%= f.submit %>
   </div> -->
 
-  <a href=# id='clicky'>add comment</a>
+  <a href=# id='clickSubmit'>add comment</a>
 <% end %>
 
 <script type="text/javascript" charset="utf-8">
   $(function () {
-    $('#clicky').on('click', function(event) {
+    $('#clickSubmit').on('click', function(event) {
       event.preventDefault();
       var values = $('form').serialize();
       var commenting = $.post('/comments', values);
