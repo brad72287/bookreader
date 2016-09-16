@@ -24,22 +24,13 @@
 
 <h3>comments</h3>
 <table id="commentsTable" class='table'>
-<% @book.comments.each do |comment| %>
-	<tr>
-		<td><strong><%= comment.user.email %></strong> says: <%= comment.content %></td>
-		<td><%= link_to 'delete', comment, method: :delete, data: { confirm: 'Are you sure?' } if comment.user == current_user %></td>
-	</tr>
-<% end %>
-<% if @book.comments.empty? %>
-	<tr>
-		<td>there are no comments yet. why don't you add one?</td>
-	</tr>
-<% end %>
+	<% @book.comments.each do |comment| %>
+		<tr>
+			<td><strong><%= comment.user.email %></strong> says: <%= comment.content %></td>
+			<td><%= link_to 'delete', comment, method: :delete, data: { confirm: 'Are you sure?' } if comment.user == current_user %></td>
+		</tr>
+	<% end %>
 </table>
-
-<div class="temp"></div>
-
 
 <%= render 'comments/form', comment: @comment, book: @book if @comment %>
 
-<%= link_to 'Back', :back %>

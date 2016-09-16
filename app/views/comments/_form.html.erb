@@ -18,19 +18,20 @@
     <%= f.hidden_field :user_id, value: comment.user_id %>
   </div>
 
-  <div class="actions">
+<!--   <div class="actions">
     <%= f.submit %>
-  </div>
+  </div> -->
+
+  <a href=# id='clicky'>add comment</a>
 <% end %>
 
 <script type="text/javascript" charset="utf-8">
   $(function () {
-    $('form').submit(function(event) {
+    $('#clicky').on('click', function(event) {
       event.preventDefault();
-      var values = $(this).serialize();
+      var values = $('form').serialize();
       var commenting = $.post('/comments', values);
-      commenting.done(function(data) {
-        //Why does form only work once?
+      commenting.success(function(data) {
         var comment = new Comment(data);
         $('#commentsTable tr:last').after(comment.formatComment());
       });

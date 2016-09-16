@@ -1,9 +1,10 @@
 function displayGenre(jsonURL){
 	$.get(jsonURL)
 		.success(function(response) {
-			$("#genreName").html(response.name);
+			genre = new Genre(response);
+			$("#genreName").html(genre.name);
 			$("#genreBooks").html("");
-			$.each(response.books, function(key, book){
+			$.each(genre.books, function(key, book){
 				$("#genreBooks").append("<a href='/users/"+book.user_id+"/books/"+book.id+"'>"+
 				book.title+" - "+book.author+"</a><br>");
 		});
