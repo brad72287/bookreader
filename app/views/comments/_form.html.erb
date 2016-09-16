@@ -32,8 +32,13 @@
       var values = $('form').serialize();
       var commenting = $.post('/comments', values);
       commenting.success(function(data) {
+        console.log(data);
         var comment = new Comment(data);
-        $('#commentsTable tr:last').after(comment.formatComment());
+        if(comment.id==null){
+          alert("Your comment failed to validate. Please try again.")
+        } else {
+          $('#commentsTable tr:last').after(comment.formatComment());
+        }
       });
     });
   });

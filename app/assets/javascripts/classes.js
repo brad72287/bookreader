@@ -20,6 +20,6 @@ class Comment {
   }
  
   formatComment() {
-    return "<tr><td><strong>"+this.user.email+"</strong> says: "+this.content+"</td><td><a data-confirm='Are you sure?'' rel='nofollow' data-method='delete' href='/comments/"+self.id+"'>delete</a></td></tr>";
+    return "<tr><td><strong>"+this.user.email+"</strong> says: "+this.content+"</td><td><a data-confirm='Are you sure?'' rel='nofollow' data-method='delete' href='/comments/"+this.id+"'>delete</a></td></tr>";
   }
 }
