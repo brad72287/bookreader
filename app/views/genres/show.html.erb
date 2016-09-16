@@ -1,52 +1,49 @@
-<!-- <div class="well">
-  <h2>genre: <%= @genre.name %></h2>
-  <p>displaying <%= @books.count %> books.</p> 
-</div> -->
+<a href="#" class="nextGenre" data-id="<%=@genre.id%>">next genre</a>
 
 <div id="genreContainer" class="well">
   <h2 id="genreName"></h2>
   <p id="genreBooks"></p>
 </div>
 
-<a href="#" class="nextGenre" data-id="<%=@genre.id%>">next genre</a>
 
-
-<!-- 
-<%= render partial: "books/table", locals: {books: @books} %>
-
-<%= link_to 'Edit', edit_genre_path(@genre) %> |
-<%= link_to 'Back', genres_path %> -->
 
 <script>
 
+$(function() {
+
+// sets the current genre
 var currentGenreID = parseInt($(".nextGenre").attr("data-id"));
 
-$(function() {
-	$.ajax({
-	    url: window.location.pathname+".json"
-		})
-		.done(function(response) {
-		//console.log(response);
-		$("#genreName").html(response.name);
-		$.each(response.books, function(key, book){
-			$("#genreBooks").append("<a href='/users/"+book.user_id+"/books/"+book.id+"'>"+
-				book.title+" - "+book.author+"</a><br>"
-				);
+function displayGenre(jsonURL){
+	$.get(jsonURL)
+		.success(function(response) {
+			$("#genreName").html(response.name);
+			$("#genreBooks").html("");
+			$.each(response.books, function(key, book){
+				$("#genreBooks").append("<a href='/users/"+book.user_id+"/books/"+book.id+"'>"+
+				book.title+" - "+book.author+"</a><br>");
 		});
 	});
-});
+}
+
+displayGenre(window.location.pathname+".json");
+
+	// $.get(window.location.pathname+".json")
+	// 	.success(function(response) {
+	// 		$("#genreName").html(response.name);
+	// 		$.each(response.books, function(key, book){
+	// 			$("#genreBooks").append("<a href='/users/"+book.user_id+"/books/"+book.id+"'>"+
+	// 			book.title+" - "+book.author+"</a><br>");
+	// 	});
+	// });
+
 
 $(".nextGenre").on("click", function(e) {
 	e.preventDefault();
     currentGenreID++;
-    $.get("/genres/" + currentGenreID + ".json", function(data) {
-    	//console.log(data);
-    	$("#genreName").html(data.name);
-    	$("#genreBooks").html("");
-		$.each(data.books, function(key, book){
-			$("#genreBooks").append("<a href='/users/"+book.user_id+"/books/"+book.id+"'>"+book.title+" - "+book.author+"</a><br>");
-		});
-    });
- });
+    displayGenre("/genres/" + currentGenreID + ".json");
+});
+
+});
 
 </script>
