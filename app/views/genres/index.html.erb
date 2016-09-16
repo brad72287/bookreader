@@ -6,9 +6,9 @@
 <div style='display: none;' class="genreContainer"></div>
     
 <script>
-$(document).ready(function() {
-  	$.ajax({url: "/genres.json"})
-	  	.done(function(genres) {
+$(function() {
+  	$.get("/genres.json")
+	  	.success(function(genres) {
 	    	$.each(genres, function(key, genreHash){
 	    		var genre = new Genre(genreHash); 
 	    		$('.genreContainer').append(genre.formatGenre());
